@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/menus/main_menu/main_menu.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/menus/settings/settings.unity
+    guid: 0192c1eb8fc6af94ea6afd37d44f39c2
+  - enabled: 1
+    path: Assets/menus/statistics/statistics.unity
+    guid: fd5102c8aeb31bc44a6afe1c47f8b409
+  - enabled: 1
+    path: Assets/minigame/light_game.unity
+    guid: e56bef19fed18624a8014dca4955e31a
+  - enabled: 1
+    path: Assets/minigame/card_game.unity
+    guid: cf1fb443854b27c458a7bf8652a6f249
+  - enabled: 1
+    path: Assets/minigame/vault_game.unity
+    guid: 1ed8194ed29bf2144bf01578fb863e54
+  m_configObjects: {}
