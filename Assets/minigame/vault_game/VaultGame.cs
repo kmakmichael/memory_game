@@ -26,7 +26,7 @@ public class VaultGame : MonoBehaviour
 
     void Start() {
         Setup();
-        ShowCode();
+        StartCoroutine("ShowCode");
     }
 
     private void Setup() {
@@ -35,31 +35,34 @@ public class VaultGame : MonoBehaviour
         disp_txt.text = "";
     }
 
-    private void ShowCode() {
+    private IEnumerator ShowCode() {
         paper.SetActive(true);
         asrc.PlayOneShot(paper_flip, 1.0f);
-        Invoke("HidePaper", 3);
+        yield return new WaitForSeconds(3);
+        asrc.PlayOneShot(paper_flip, 1.0f);
+        paper.SetActive(false);
     }
 
-    private void HidePaper() {
+    public void HidePaper() {
+        StopCoroutine("ShowCode");
         asrc.PlayOneShot(paper_flip, 1.0f);
         paper.SetActive(false);
     }
 
     public void PressButton(string d) {
-        asrc.PlayOneShot(boop, 0.6f);
+        asrc.PlayOneShot(boop, 0.5f);
         disp_txt.text += d;
     }
 
     public void PressEnter() {
-        asrc.PlayOneShot(boop, 0.6f);
+        asrc.PlayOneShot(boop, 0.5f);
         if (disp_txt.text.Equals(paper_txt.text)) {
             // open the vault and show the loot inside
             // also play a good sound (success beep, idk)
             // also a sound for the vault opening
             ++difficulty;
             Setup();
-            ShowCode();
+            StartCoroutine("ShowCode");
         } else {
             // play a bad sound (siren, error beep)
             lossbox.SetActive(true);
