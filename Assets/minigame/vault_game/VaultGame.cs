@@ -10,9 +10,11 @@ public class VaultGame : MonoBehaviour
     private GameObject paper;
     private Text paper_txt;
     [SerializeField]
-    private AudioSource paper_sound;
-    [SerializeField]
     private Text disp_txt;
+    [SerializeField]
+    private AudioClip paper_flip, boop;
+    [SerializeField]
+    private AudioSource asrc;
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,16 +34,17 @@ public class VaultGame : MonoBehaviour
 
     private void ShowCode() {
         paper.SetActive(true);
-        paper_sound.Play();
+        asrc.PlayOneShot(paper_flip, 1.0f);
         Invoke("HidePaper", 3);
     }
 
     private void HidePaper() {
-        paper_sound.PlayOneShot(paper_sound.clip, 1.0f);
+        asrc.PlayOneShot(paper_flip, 1.0f);
         paper.SetActive(false);
     }
 
     public void PressButton(string d) {
+        asrc.PlayOneShot(boop, 0.6f);
         disp_txt.text += d;
         Debug.Log("pressed " + d + " digit, guess now " + disp_txt.text);
     }

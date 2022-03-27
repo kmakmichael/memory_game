@@ -3190,7 +3190,7 @@ GameObject:
   - component: {fileID: 2095939069}
   - component: {fileID: 2095939070}
   m_Layer: 0
-  m_Name: paper_sound
+  m_Name: sounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3351,8 +3351,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paper: {fileID: 1807784535}
-  paper_sound: {fileID: 2095939070}
   disp_txt: {fileID: 950265645}
+  paper_flip: {fileID: 8300000, guid: a73c4c1df234daa489a7cfd9c296cb42, type: 3}
+  boop: {fileID: 8300000, guid: b1f6fd6aac6dba040bc2b04dfd0649bf, type: 3}
+  asrc: {fileID: 2095939070}
 --- !u!114 &637865820553016781
 MonoBehaviour:
   m_ObjectHideFlags: 0
