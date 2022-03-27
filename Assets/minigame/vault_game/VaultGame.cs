@@ -49,21 +49,25 @@ public class VaultGame : MonoBehaviour
     public void PressButton(string d) {
         asrc.PlayOneShot(boop, 0.6f);
         disp_txt.text += d;
-        Debug.Log("pressed " + d + " digit, guess now " + disp_txt.text);
     }
 
     public void PressEnter() {
+        asrc.PlayOneShot(boop, 0.6f);
         if (disp_txt.text.Equals(paper_txt.text)) {
             // open the vault and show the loot inside
+            // also play a good sound (success beep, idk)
+            // also a sound for the vault opening
             ++difficulty;
             Setup();
             ShowCode();
         } else {
+            // play a bad sound (siren, error beep)
             lossbox.SetActive(true);
         }
     }
 
     public void PressDelete() {
+        asrc.PlayOneShot(boop, 0.6f);
         if (disp_txt.text.Length > 1) {
             disp_txt.text = disp_txt.text.Substring(0, disp_txt.text.Length-1);
         } else {
