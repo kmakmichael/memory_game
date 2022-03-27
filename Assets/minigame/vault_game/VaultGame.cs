@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class VaultGame : MonoBehaviour
 {
-    private int difficulty = 5; // start at 1 or 2, max 15s
+    private int difficulty = 3; // start at 1 or 2, max 15s
     [SerializeField]
     private GameObject paper;
     private Text paper_txt;
@@ -48,7 +48,10 @@ public class VaultGame : MonoBehaviour
 
     public void PressEnter() {
         if (disp_txt.text.Equals(paper_txt.text)) {
-            Debug.Log("you win");
+            // open the vault and show the loot inside
+            ++difficulty;
+            Setup();
+            ShowCode();
         } else {
             Debug.Log("you lose");
         }
@@ -57,17 +60,16 @@ public class VaultGame : MonoBehaviour
     public void PressDelete() {
         if (disp_txt.text.Length > 1) {
             disp_txt.text = disp_txt.text.Substring(0, disp_txt.text.Length-1);
-            Debug.Log("guess is now " + disp_txt.text);
         } else {
             disp_txt.text = "";
-            Debug.Log("guess is now empty");
         }
     }
 
     private string randomCombo(int len) {
-        Debug.Log("generating " + len + "-digit combo...");
-        string com = "12345";
-        Debug.Log("secret combo is " + com);
+        string com = "";
+        for (int i = 0; i < difficulty; i++) {
+            com += Random.Range(0,10).ToString();
+        }
         return com;
     }
 }
