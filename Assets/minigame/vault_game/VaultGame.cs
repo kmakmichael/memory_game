@@ -15,6 +15,8 @@ public class VaultGame : MonoBehaviour
     private AudioClip paper_flip, boop;
     [SerializeField]
     private AudioSource asrc;
+    [SerializeField]
+    private GameObject lossbox;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,6 +30,7 @@ public class VaultGame : MonoBehaviour
     }
 
     private void Setup() {
+        lossbox.SetActive(false);
         paper_txt.text = randomCombo(difficulty);
         disp_txt.text = "";
     }
@@ -56,7 +59,7 @@ public class VaultGame : MonoBehaviour
             Setup();
             ShowCode();
         } else {
-            Debug.Log("you lose");
+            lossbox.SetActive(true);
         }
     }
 

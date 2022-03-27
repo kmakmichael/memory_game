@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExitButton : MonoBehaviour
+public class QuitButton : MonoBehaviour
 {
-    public void QuitToMainMenu() {
+    public void QuitToMenu() {
         SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
     }
 }

@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1259893729519752213}
   - component: {fileID: 8004750012580495538}
   - component: {fileID: 2283273126915254308}
-  - component: {fileID: 6062263678674855474}
+  - component: {fileID: 593333528201091410}
   m_Layer: 5
   m_Name: quit
   m_TagString: Untagged
@@ -189,9 +189,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6062263678674855474}
-        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
-        m_MethodName: QuitToMainMenu
+      - m_Target: {fileID: 593333528201091410}
+        m_TargetAssemblyTypeName: QuitButton, Assembly-CSharp
+        m_MethodName: QuitToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &6062263678674855474
+--- !u!114 &593333528201091410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2334843657388031902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dfb659699e8c674a82bbfabc52eda56, type: 3}
+  m_Script: {fileID: 11500000, guid: 821fccf4ebb950544af56f03f56c285c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3097929339121006267
