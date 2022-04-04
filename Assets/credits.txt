@@ -1,0 +1,10 @@
+vault:
+	code font: https://managore.itch.io/m5x7
+	paper: https://opengameart.org/content/simple-notebook-paper
+	handwriting: https://fontlibrary.org/en/font/uglytypist
+	paper flip: https://freesound.org/people/Juandamb/sounds/430622/
+	boop: https://freesound.org/people/fordps3/sounds/186669/
+
+
+lights
+	piano sound: https://freesound.org/people/ghostwiremedia/sounds/537875/
