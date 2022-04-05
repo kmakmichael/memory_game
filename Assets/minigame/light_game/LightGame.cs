@@ -23,11 +23,6 @@ public class LightGame : MonoBehaviour
         lossbox.SetActive(false);
         Canvas.ForceUpdateCanvases();
         Setup();
-        /*for (int i = 0; i < seq.Length; i++) {
-            guess += seq[i];
-            AddColorBlock(seq[i]);
-        }*/
-        Debug.LogFormat("({0}, {1}, {2})", p, h, w);
     }
 
     private void Setup() {
@@ -67,7 +62,6 @@ public class LightGame : MonoBehaviour
         GameObject blk = Instantiate(ColorMux(c), seq_disp);
         blk.name = "blk_" + (guess.Length-1);
         float x1 = (guess.Length-1)*(p+w) + p;
-        Debug.LogFormat("blk pos: ({0}, {1})", x1, 0f);
         RectTransform r = blk.GetComponent<RectTransform>();
         r.anchorMin = new Vector2(0.0f, 0.5f);
         r.anchorMax = new Vector2(0.0f, 0.5f);
