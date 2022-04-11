@@ -78,11 +78,9 @@ public class CardGame : MonoBehaviour
     }
 
     private void ClickCard(GameObject c, (int,int) pos) {
-        Debug.Log("death" + x + "-" + y);
         if (active) {
-            
         } else {
-            active == c;
+            active = c;
         }
     }
 
