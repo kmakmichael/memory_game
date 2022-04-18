@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.U2D;
 
 public class CardGame : MonoBehaviour
 {
@@ -28,7 +29,10 @@ public class CardGame : MonoBehaviour
         donut,
         egg,
         cookie,
-        cupcake
+        cupcake,
+        kiwi,
+        meat,
+        milk
     }
     private int moves = 0;
     private card_type[,] board;
@@ -44,6 +48,8 @@ public class CardGame : MonoBehaviour
 
     [SerializeField]
     private GameObject blank_card;
+    [SerializeField]
+    private SpriteAtlas atlas;
 
     void Start() {
         endcard.SetActive(false);
@@ -123,16 +129,9 @@ public class CardGame : MonoBehaviour
         scr.SetCardType((int)ctype);
         b.onClick.AddListener(delegate {ClickCard(c, pos); });
         // set the proper texture
-        RawImage img = c.GetComponentInChildren<RawImage>();
-        img.texture = TexByType(ctype);
+        Image img = c.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+        img.sprite = atlas.GetSprite(System.Enum.GetName(typeof(card_type), ctype));
         return c;
-    }
-
-    private Texture2D TexByType(card_type c) {
-        var rawdata = System.IO.File.ReadAllBytes("Assets/minigame/card_game/symbols/food/" + System.Enum.GetName(typeof(card_type), c) + ".png");
-        Texture2D tex = new Texture2D(4, 4);
-        tex.LoadImage(rawdata);
-        return tex;
     }
 
     private void ClickCard(GameObject c, (int,int) pos) {

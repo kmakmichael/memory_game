@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: food
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: fe3794fae4c412d49acd40e11b997a25, type: 3}
+    totalSpriteSurfaceArea: 26624
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 784e7f70d6e9f5247b53b1bcc405efe1, type: 3}
+  - {fileID: 21300000, guid: 40a6b9517d7f3ea4885029530c67d333, type: 3}
+  - {fileID: 21300000, guid: 518ed6d1b15b5e04c8a9c005cc991916, type: 3}
+  - {fileID: 21300000, guid: 6fe74ef11e4fb4946b9c2084cf91221e, type: 3}
+  - {fileID: 21300000, guid: 2ed26513a60339845a1dd86f024e763c, type: 3}
+  - {fileID: 21300000, guid: bb35be23ac128ca448f15a7eba54c7e7, type: 3}
+  - {fileID: 21300000, guid: e5aecc53b8caae94b8ce7f6d7166ec1f, type: 3}
+  - {fileID: 21300000, guid: d8e701f318cdd6a4f87e76555a6a39d7, type: 3}
+  - {fileID: 21300000, guid: 327ac4946462edf499a00e39f9e18553, type: 3}
+  - {fileID: 21300000, guid: 506255e46c343a3498d5cd7d3e9eabbd, type: 3}
+  - {fileID: 21300000, guid: e26c2945a452259419978dc322b8710b, type: 3}
+  - {fileID: 21300000, guid: 305d8b75ea5129b4a887c2d14715bbca, type: 3}
+  - {fileID: 21300000, guid: fa4b6456f550bb54795cc05cb6d8ff73, type: 3}
+  - {fileID: 21300000, guid: 86d7e3f6da4e59e43b4c8232aac44036, type: 3}
+  - {fileID: 21300000, guid: 26e30928573e1004785f72b835a748f2, type: 3}
+  - {fileID: 21300000, guid: a6e10e09497115d43838578a46060588, type: 3}
+  - {fileID: 21300000, guid: a2456a29376f9c548b0809865267cc10, type: 3}
+  - {fileID: 21300000, guid: c8f1aa39573f4344aa59bce12be93a36, type: 3}
+  - {fileID: 21300000, guid: 26d776597beafb34f94c5e2c7a8671da, type: 3}
+  - {fileID: 21300000, guid: 4b2fc4eb5b8c54a4bafccb263afbe2b8, type: 3}
+  - {fileID: 21300000, guid: c2b9596d3d26a26409a8d94f5a29089b, type: 3}
+  - {fileID: 21300000, guid: 4f997afd2572bd14abe1667eef3c47d8, type: 3}
+  - {fileID: 21300000, guid: 0a76d9bea9401e94c8e7f1ae7f6cee98, type: 3}
+  - {fileID: 21300000, guid: 56f9ee2fc056f9846a553dda5680aee1, type: 3}
+  - {fileID: 21300000, guid: 01ef606fd54bd714a82dbc65bc1d2e94, type: 3}
+  - {fileID: 21300000, guid: aa996cef993b24042802a9b599d48e95, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - cherry
+  - tomato
+  - strawberry
+  - orange
+  - carrot
+  - broccoli
+  - sandwich
+  - none
+  - pineapple
+  - pepper
+  - cookie
+  - onion
+  - milk
+  - egg
+  - apple
+  - eggplant
+  - cupcake
+  - cheese
+  - leek
+  - taco
+  - banana
+  - watermelon
+  - kiwi
+  - ham
+  - donut
+  - lemon
+  m_RenderDataMap: {}
+  m_Tag: food
+  m_IsVariant: 0

@@ -521,6 +521,7 @@ MonoBehaviour:
   board_cover: {fileID: 744928287}
   game_box: {fileID: 765949942}
   blank_card: {fileID: 6078538869664437084, guid: f56374cc2b0269b41be9ecf356c5085d, type: 3}
+  atlas: {fileID: 4343727234628468602, guid: fd4362c19d7f3554689e359d5004e6e2, type: 2}
 --- !u!222 &765949945
 CanvasRenderer:
   m_ObjectHideFlags: 0
