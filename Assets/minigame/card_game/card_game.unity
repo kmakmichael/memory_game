@@ -417,7 +417,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 311560262}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -498,7 +498,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 311560262}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0.1}
   m_AnchorMax: {x: 0.75, y: 0.9}
@@ -520,7 +520,6 @@ MonoBehaviour:
   endcard: {fileID: 1656729058}
   board_cover: {fileID: 744928287}
   game_box: {fileID: 765949942}
-  jingle: {fileID: 0}
   blank_card: {fileID: 6078538869664437084, guid: f56374cc2b0269b41be9ecf356c5085d, type: 3}
 --- !u!222 &765949945
 CanvasRenderer:

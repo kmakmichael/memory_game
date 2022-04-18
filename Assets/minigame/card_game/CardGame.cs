@@ -41,8 +41,6 @@ public class CardGame : MonoBehaviour
     private GameObject board_cover;
     [SerializeField]
     private RectTransform game_box;
-    [SerializeField]
-    private AudioSource jingle;
 
     [SerializeField]
     private GameObject blank_card;
