@@ -6,8 +6,30 @@ using UnityEngine.UI;
 public class CardGame : MonoBehaviour
 {
     enum card_type {
+        none,
+        apple,
+        banana,
+        strawberry,
+        leek,
+        watermelon,
+        carrot,
+        eggplant,
+        cherry,
+        lemon,
+        tomato,
+        broccoli,
+        orange,
+        pineapple,
+        pepper,
+        cheese,
+        onion,
+        taco,
+        sandwich,
+        donut,
+        egg,
+        cookie,
+        cupcake
     }
-    private int difficulty = 2;
     private card_type[,] board;
     private (int,int) blen = (4,4);
     private GameObject active;
@@ -37,19 +59,37 @@ public class CardGame : MonoBehaviour
 
     private void FillBoard() {
         board = new card_type[blen.Item1,blen.Item2];
-        for (int y = 0; y < blen.Item1; y++) {
-            for (int x = 0; x < blen.Item2; x++) {
-                board[y,x] = RandomCard();
+        int ct_max = blen.Item1 * blen.Item2 / 2;
+        for (int ct = 1; ct <= ct_max; ct++) {
+            // place two cards randomly
+            card_type rx = (card_type) ct;
+            for (int i = 0; i < 2; i++) {
+                (int, int) pos = RandomPosition();
+                while (board[pos.Item1, pos.Item2] != 0) {
+                    pos = RandomPosition();
+                }
+                board[pos.Item1, pos.Item2] = rx;
             }
         }
+    }
+
+    private card_type RandomCard() {
+        int i = Random.Range(1,System.Enum.GetNames(typeof(card_type)).Length);
+        return (card_type)i;
+    }
+
+    private (int, int) RandomPosition() {
+        return (Random.Range(0,blen.Item1), Random.Range(0,blen.Item2));
     }
 
     private IEnumerator PlaceCards() {
         board_cover.SetActive(true);
         for (int y = 0; y < blen.Item1; y++) {
             for (int x = 0; x < blen.Item2; x++) {
-                GameObject c = CreateCard(board[y,x],(y,x));
-                yield return new WaitForSeconds(0.2f);
+                if (board[y,x] != card_type.none) {
+                    GameObject c = CreateCard(board[y,x],(y,x));
+                    yield return new WaitForSeconds(0.2f);
+                }
             }
         }
         yield return new WaitForSeconds(0.5f);
@@ -81,26 +121,40 @@ public class CardGame : MonoBehaviour
         Card scr = c.GetComponent<Card>();
         scr.SetCardType((int)ctype);
         b.onClick.AddListener(delegate {ClickCard(c, pos); });
+        // set the proper texture
+        RawImage img = c.GetComponentInChildren<RawImage>();
+        img.texture = TexByType(ctype);
         return c;
+    }
+
+    private Texture2D TexByType(card_type c) {
+        var rawdata = System.IO.File.ReadAllBytes("Assets/minigame/card_game/symbols/food/" + System.Enum.GetName(typeof(card_type), c) + ".png");
+        Texture2D tex = new Texture2D(4, 4);
+        tex.LoadImage(rawdata);
+        return tex;
     }
 
     private void ClickCard(GameObject c, (int,int) pos) {
         Debug.Log("card type is " + c.GetComponent<Card>().GetCardType());
         if (active != null) {
-            Debug.Log("yo?");
             Card scr_a = active.GetComponent<Card>();
             Card scr_b = c.GetComponent<Card>();
             if (scr_a.GetCardType() == scr_b.GetCardType()) {
-                Debug.Log("yo!");
+                // play a nice sound? honestly idk, might just do nothing
             } else {
-                scr_a.Flip();
-                scr_b.Flip();
+                // wait a second first
+                StartCoroutine(FlipBack(scr_a, scr_b));
             }
             active = null;
         } else {
-            Debug.Log("yo...");
             active = c;
         }
+    }
+
+    private IEnumerator FlipBack(Card a, Card b) {
+        yield return new WaitForSeconds(1.0f);
+        a.Flip();
+        b.Flip();
     }
 
 
@@ -108,36 +162,6 @@ public class CardGame : MonoBehaviour
         foreach (Transform child in game_box.transform) {
             GameObject.Destroy(child.gameObject);
         }
-    }
-
-    private void SeqGen(int len) {
-        /*string com = "";
-        for (int i = 0; i < difficulty; i++) {
-            com += RandomCard();
-        }
-        return com;*/
-    }
-
-    private card_type RandomCard() {
-        int i = Random.Range(0,System.Enum.GetNames(typeof(card_type)).Length);
-        return (card_type)i;
-    }
-
-
-    private void CheckGuess() {
-        /*if (guess.Length == seq.Length) {
-            if (guess.Equals(seq)) {
-                DisableButtons();
-                ++difficulty;
-                StartCoroutine("PlaceCards");
-            } else {
-                endcard.SetActive(true);
-            }
-        } else {
-            if (!guess.Equals(seq.Substring(0,guess.Length))) {
-                endcard.SetActive(true);
-            }
-        }*/
     }
 
     private IEnumerator WinRound() {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     private bool concealed = true;
+    [SerializeField]
     private int card_type = 0;
     [SerializeField]
     private GameObject top;

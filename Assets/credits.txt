@@ -6,5 +6,9 @@ vault:
 	boop: https://freesound.org/people/fordps3/sounds/186669/
 
 
-lights
+lights:
 	piano sound: https://freesound.org/people/ghostwiremedia/sounds/537875/
+	
+cards:
+	flip sound: https://freesound.org/people/f4ngy/sounds/240777/
+	food: https://opengameart.org/content/cc0-food-icons
