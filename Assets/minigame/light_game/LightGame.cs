@@ -147,6 +147,7 @@ public class LightGame : MonoBehaviour
     private IEnumerator WinRound() {
         yield return new WaitForSeconds(0.75f);
         jingle.PlayOneShot(jingle.clip);
+        lossbox.transform.GetChild(0).Find("score").GetComponent<Text>().text = "Score: " + (difficulty-1);
         Setup();
     }
 }

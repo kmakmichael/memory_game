@@ -66,6 +66,7 @@ public class VaultGame : MonoBehaviour
         } else {
             // play a bad sound (siren, error beep)
             lossbox.SetActive(true);
+            lossbox.transform.GetChild(0).Find("score").GetComponent<Text>().text = "Score: " + (difficulty-1);
         }
     }
 
