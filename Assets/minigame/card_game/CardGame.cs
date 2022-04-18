@@ -33,7 +33,7 @@ public class CardGame : MonoBehaviour
     private int moves = 0;
     private card_type[,] board;
     private bool[,] matched;
-    private (int,int) blen = (2,2);
+    private (int,int) blen = (4,4);
     private GameObject active;
     [SerializeField]
     private GameObject endcard;
