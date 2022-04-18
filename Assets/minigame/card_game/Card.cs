@@ -5,6 +5,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     private bool concealed = true;
+    public bool matched = false;
     [SerializeField]
     private int card_type = 0;
     [SerializeField]

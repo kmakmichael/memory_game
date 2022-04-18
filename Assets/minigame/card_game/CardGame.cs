@@ -30,8 +30,10 @@ public class CardGame : MonoBehaviour
         cookie,
         cupcake
     }
+    private int moves = 0;
     private card_type[,] board;
-    private (int,int) blen = (4,4);
+    private bool[,] matched;
+    private (int,int) blen = (2,2);
     private GameObject active;
     [SerializeField]
     private GameObject endcard;
@@ -52,6 +54,7 @@ public class CardGame : MonoBehaviour
     }
 
     private void Setup() {
+        moves = 0;
         Cleanup();
         FillBoard();
         StartCoroutine("PlaceCards");
@@ -92,7 +95,7 @@ public class CardGame : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         board_cover.SetActive(false);
     }
 
@@ -135,12 +138,17 @@ public class CardGame : MonoBehaviour
     }
 
     private void ClickCard(GameObject c, (int,int) pos) {
-        Debug.Log("card type is " + c.GetComponent<Card>().GetCardType());
         if (active != null) {
+            ++moves;
             Card scr_a = active.GetComponent<Card>();
             Card scr_b = c.GetComponent<Card>();
             if (scr_a.GetCardType() == scr_b.GetCardType()) {
                 // play a nice sound? honestly idk, might just do nothing
+                scr_a.matched = true;
+                scr_b.matched = true;
+                if (CheckBoard()) {
+                    WinRound();
+                }
             } else {
                 // wait a second first
                 StartCoroutine(FlipBack(scr_a, scr_b));
@@ -157,6 +165,13 @@ public class CardGame : MonoBehaviour
         b.Flip();
     }
 
+    private bool CheckBoard() {
+        bool vic = true;
+        foreach (Card c in game_box.gameObject.GetComponentsInChildren<Card>()) {
+            vic &= c.matched;
+        }
+        return vic;
+    }
 
     private void Cleanup() {
         foreach (Transform child in game_box.transform) {
@@ -164,9 +179,8 @@ public class CardGame : MonoBehaviour
         }
     }
 
-    private IEnumerator WinRound() {
-        yield return new WaitForSeconds(0.75f);
-        // jingle.PlayOneShot(jingle.clip);
-        Setup();
+    private void WinRound() {
+        endcard.SetActive(true);
+        endcard.transform.GetChild(0).Find("score").GetComponent<Text>().text = "Moves: " + moves;
     }
 }
