@@ -9,4 +9,5 @@ Evaluated for usefulness and usability as part of the course.
 - Michael Kmak: Programmer
 
 ## Notes
+- Playable [here](https://play.unity.com/mg/other/webgl-builds-166302)
 - Created on Unity ver. 2020.3.18f1
